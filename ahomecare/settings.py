@@ -7,8 +7,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-sx7312y$f)j7jz%wwe%av)i4u_46#f!558wxb87!-ok7%rk9ds'
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -118,13 +116,6 @@ from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
-
-# Email config
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'desie21mn@gmail.com'
-EMAIL_HOST_PASSWORD = 'amhara12345'
-EMAIL_USE_TLS = True
 
 
 # Default primary key field type
