@@ -1,0 +1,125 @@
+{% extends 'base.html' %} 
+{% block title %} | FAQS {% endblock %}
+{% block content %} 
+<section id="showcase-inner" class="py-5 text-white">
+   <div class="container">
+     <div class="row text-center">
+       <div class="col-md-12">
+         <h1 class="display-4">Get to Know More </h1>
+         <p class="lead">Get answer to you Questions</p>
+       </div>
+     </div>
+   </div>
+ </section>
+
+ <!-- Breadcrumb -->
+ <section id="bc" class="mt-3">
+   <div class="container">
+     <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item">
+           <a href="{% url 'home' %}">
+             <i class="fas fa-home text-info"></i> Home</a>
+         </li>
+         <li class="breadcrumb-item active"> FAQS</li>
+       </ol>
+     </nav>
+   </div>
+ </section>
+
+ <section id="faq" class="py-4">
+  <div class="container">
+    <h1 class="text-center">Frequently Asked Questions</h1>
+    <hr>
+    <div class="wrapper" >
+      {% if question %} 
+        {% for quest in question %} 
+          <div class="parent-tab">
+           <input type="radio" name="tab" id="tab1" checked>
+           <label for="tab1">
+             <span>{{ quest.q1}}</span>
+             <div class="icon"><i class="fas fa-plus"></i> </div>
+           </label>
+           <div class="content p-2">
+             <p class="lead">{{ quest.ans1 }}</p>
+           </div>
+        </div>
+         <div class="parent-tab">
+          <input type="radio" name="tab" id="tab2">
+          <label for="tab2">
+            <span>{{ quest.q2}}</span>
+            <div class="icon"><i class="fas fa-plus"></i> </div>
+          </label>
+          <div class="content p-2">
+            <p class="lead">{{ quest.ans2 }}</p>
+          </div>
+        </div>
+        <div class="parent-tab">
+          <input type="radio" name="tab" id="tab3">
+          <label for="tab3">
+            <span>{{ quest.q3}}</span>
+            <div class="icon"><i class="fas fa-plus"></i> </div>
+          </label>
+          <div class="content p-2">
+            <p class="lead">{{ quest.ans3 }}</p>
+          </div>
+        </div>
+        <div class="parent-tab">
+          <input type="radio" name="tab" id="tab4">
+          <label for="tab4">
+            <span>{{ quest.q4}}</span>
+            <div class="icon"><i class="fas fa-plus"></i> </div>
+          </label>
+          <div class="content p-2">
+            <p class="lead">{{ quest.ans4 }}</p>
+          </div>
+        </div>
+        <div class="parent-tab">
+          <input type="radio" name="tab" id="tab5">
+          <label for="tab5">
+            <span>{{ quest.q5}}</span>
+            <div class="icon"><i class="fas fa-plus"></i> </div>
+          </label>
+          <div class="content p-2">
+            <p class="lead">{{ quest.ans5 }}</p>
+          </div>
+        </div>
+        <div class="parent-tab">
+          <input type="radio" name="tab" id="tab6">
+          <label for="tab6">
+            <span>{{ quest.q6}}</span>
+            <div class="icon"><i class="fas fa-plus"></i> </div>
+          </label>
+          <div class="content p-2">
+            <p class="lead">{{ quest.ans6 }}</p>
+          </div>
+        </div>
+        <div class="parent-tab">
+          <input type="radio" name="tab" id="tab7">
+          <label for="tab7">
+            <span>{{ quest.q7}}</span>
+            <div class="icon"><i class="fas fa-plus"></i> </div>
+          </label>
+          <div class="content p-2">
+            <p class="lead">{{ quest.ans7 }}</p>
+          </div>
+        </div>
+        <div class="parent-tab">
+          <input type="radio" name="tab" id="tab8">
+          <label for="tab8">
+            <span>{{ quest.q8}}</span>
+            <div class="icon"><i class="fas fa-plus"></i> </div>
+          </label>
+          <div class="content p-2">
+            <p class="lead">{{ quest.ans8 }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      {% else %} 
+        <div class="col-md-12">
+          <p class="lead">No Data Available</p>
+        </div>
+      {% endif %}
+  </div>
+ </section>
+{% endblock %}

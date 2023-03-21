@@ -1,0 +1,147 @@
+{% extends 'base.html' %} 
+{% block title %} | Welcome {% endblock %}
+{% block content %}
+<!-- Showcase -->
+<section id="showcase">
+  <div class="container text-center">
+    <div class="home-get-in-touch p-5">
+      <div class="overlay p-5">
+        <h1 class="display-4 mb-4">Ahomecare in San Diego</h1>
+        <p class="lead">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae
+          quas, asperiores eveniet vel nostrum magnam voluptatum tempore!
+          Consectetur, id commodi!
+        </p>
+        <button
+          class="btn-info btn-lg mb-3"
+          data-toggle="modal"
+          data-target="#contactModal"
+        >
+          Send a message NOW!
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
+<section class="py-3">
+  <div class="container">
+    <div class="row">
+      {% if homes %} 
+        {% for home in homes %} 
+        <div class="col-12">
+          <h2 class="text-center">
+            {{home.title}}
+          </h2>
+          <strong>
+            <p class="lead">
+              {{ home.description_one }}
+            </p>
+          </strong>
+          <strong>
+            <p class="lead">
+              {{ home.description_two }}
+            </p>
+          </strong>
+          <strong>
+            <p class="lead">
+              {{ home.description_three }}
+            </p>
+          </strong>
+        </div>
+        {% endfor %}
+      {% else %} 
+        <div class="col-md-12">
+          <p>No Data Available</p>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- Contact Modal -->
+<div class="modal fade" id="contactModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-info text-white">
+        <h5 class="modal-title" id="inquiryModalLabel">Contact Us By Email</h5>
+        <button type="button" class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form action="{% url 'contact' %}" method="POST">
+          {% csrf_token %} 
+          {% if user.is_authenticated %} 
+            <input type="hidden" name="user_id" value="{{ user.id }}" > 
+          {% else %}
+            <input type="hidden" name="user_id" value="0" >
+          {% endif %}
+          <div class="form-group">
+            <label for="first_name" class="col-form-label">First Name <span class="text-danger">*</span></label>
+            <input type="text" name="first_name" class="form-control" placeholder="First Name" {% if user.is_authenticated %} value="{{ user.first_name }}" {% endif %} required />
+          </div>
+          <div class="form-group">
+            <label for="last_name" class="col-form-label">Last Name <span class="text-danger">*</span></label>
+            <input type="text" name="last_name" class="form-control" placeholder="Last Name" {% if user.is_authenticated %} value="{{ user.last_name }}" {% endif %} required />
+          </div>
+          <div class="form-group">
+            <label for="email" class="col-form-label">Your Email adress
+              <span class="text-danger">*</span>
+            </label>
+            <input type="email" name="email" class="form-control" placeholder="Email" {% if user.is_authenticated %} value="{{ user.email }}" {% endif %}required />
+          </div>
+            <div class="form-group">
+              <label for="phone" class="col-form-label">Best number for us to call to speak with you (optional)</label>
+              <input
+                type="text"
+                name="phone"
+                class="form-control"
+                placeholder="Phone"
+              />
+            </div>
+            <div class="form-group">
+              <label for="message" class="col-form-label">Description of the care that you or your loved one needs:</label>
+              <textarea
+                rows="10"
+                name="message"
+                class="form-control"
+                placeholder="Share your special message you wish to tell us about your care needs."
+              ></textarea>
+            </div>
+            <hr />
+            <input
+              type="submit"
+              value="Send"
+              class="btn btn-block btn-lg btn-info"
+            />
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="home-bg" class="text-white mb-5">
+  <div class="container home-inner">
+      {% if homes %} 
+        {% for home in homes %} 
+          <h2 class="display-4 text-center">{{home.title}}</h2>
+          <p class="lead">
+            {{home.description_four}}
+          </p>
+          <p class="text-center">
+
+            <a href="{% url 'service' %}" class="btn btn-outline-info text-white my-2 btn-lg"
+              >{{home.url_text}}</a
+            >
+          </p>
+        {% endfor %}
+      {% else %} 
+        <div class="col-md-12">
+          <p>No Data Available</p>
+        </div>
+      {% endif %}
+  </div>
+</section>
+{% endblock %}

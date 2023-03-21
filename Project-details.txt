@@ -1,0 +1,51 @@
+Ahomecare app requirements
+
+Front-End pages
+.Home
+.About
+.Services
+.Contact
+.Signup
+.Login
+.Dashboard
+
+
+MODEL/DB Fields
+
+# Services
+id: INT
+title: STR
+paragraph: TEXT
+description: TEXT
+photo_main: STR
+is_published: BOOL [True]
+photo_1: STR
+photo_2: STR
+photo_3: STR
+
+# About 
+id: INT
+title: STR
+paragraph: TEXT
+photo_about: STR
+
+#about-team
+id: INT
+Name: STR
+photo_team: STR
+description: TEXT
+
+
+
+# Contact
+id: INT
+user_id: INT
+name: STR
+email: STR
+phone: STR
+message: TEXT
+contact_date: DATE
+
+
+
+

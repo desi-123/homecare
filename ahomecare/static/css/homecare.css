@@ -1,0 +1,246 @@
+/* accordion */
+.wrapper .parent-tab{
+  margin-bottom: 8px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+
+}
+
+.wrapper label span {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-shadow: 0 -1 1px #3caea3;
+}
+
+.wrapper .parent-tab label{
+  background: #3caea3;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  border-radius: 3px;
+  position: relative;
+  z-index: 99;
+}
+
+.wrapper label .icon {
+  position: relative;
+  height: 30px;
+  color: #3caea3;
+  width: 30px;
+  display: block;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.parent-tab input:checked ~ label .icon i::before {
+  content: '\f068';
+}
+
+.wrapper label .icon i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wrapper .parent-tab .content{
+  max-height: 0px;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.parent-tab input:checked ~ .content{
+  max-height: 100vh;
+}
+
+.wrapper input {
+  display: none;
+}
+
+/* Blog */
+#blog {
+  min-height: 80vh;
+}
+
+#main-footer {
+  background: #3caea3;
+  color: #fff !important;
+}
+#navbar-dark {
+  background: #3caea3;
+  color: #fff !important;
+}
+
+#our-team {
+  background: #3caea3 !important;
+}
+
+img {
+  width: 100%;
+}
+
+.logo {
+  width: 70px;
+}
+
+.navbar {
+  opacity: 0.9;
+  text-transform: uppercase;
+}
+
+.social a {
+  margin-right: 0.4rem;
+}
+
+/* home header background */
+
+#showcase {
+  background: url(../img/homeshowcase.jpg) center no-repeat fixed;
+  background-size: cover;
+  position: relative;
+  min-height: 680px;
+  color: #fff;
+  padding-top: 6rem;
+}
+#showcase::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  width: 100%;
+  background: rgba(38, 79, 173, 0.5);
+
+}
+#showcase .home-get-in-touch {
+  min-height: 400px;
+  position: relative;
+  border-radius: 5px;
+}
+
+/* contact page background */
+
+#showcase-inner {
+  background: url(../img/contactusBg.jpg) center no-repeat fixed;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+}
+#showcase-inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  width: 100%;
+  background: rgba(38, 79, 173, 0.4);
+
+}
+
+/* service bg */
+#service-inner {
+  background: url(../img/serviceshowcase.jpg) center no-repeat fixed;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  min-height: 450px;
+}
+#service-inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  width: 100%;
+  background: rgba(38, 79, 173, 0.5);
+
+}
+
+/* home body image background */
+
+#home-bg {
+  background: url(../img/aboutshowcase.jpg) top center no-repeat fixed;
+  background-size: cover;
+  padding: 6rem 0;
+}
+
+#home-bg::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  background: rgba(38, 79, 173, 0.8);
+
+}
+
+.home-inner {
+  color: #fff;
+  background: rgba(38, 79, 173, 0.8);
+}
+
+/* service team body image background */
+
+#service-team {
+  background: url(../img/serviceteam-bg.png) top center no-repeat fixed;
+  background-size: cover;
+  padding: 6rem 0;
+}
+
+#service-team::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  background: rgba(38, 79, 173, 0.8);
+
+}
+
+.service-team-inner {
+  color: #fff;
+  background: rgba(38, 79, 173, 0.8);
+}
+
+@media (max-width: 991px) {
+  #showcase {
+    padding-top: 4rem;
+  }
+  #showcase h1 {
+    font-size: 40px;
+  }
+  .hide-md-down {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  #showcase {
+    padding-top: 3rem;
+  }
+  #showcase h1 {
+    font-size: 40px;
+  }
+  #showcase p {
+    display: none;
+  }
+  #top-bar {
+    text-align: center;
+  }
+  #top-bar .social {
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 576px) {
+  #showcase h1 {
+    font-size: 30px;
+  }
+  #showcase-inner h1 {
+    font-size: 40px;
+  }
+}
+
+#login {
+  min-height: 80vh;
+}
